@@ -1,10 +1,27 @@
 <template>
   <div class="editor">
     <h1>New memo</h1>
-    <textarea name="memo"></textarea>
-    <button>保存</button>
+    <textarea name="memo" v-model="memoBody"></textarea>
+    <button v-on:click="save">保存</button>
   </div>
 </template>
+
+<script>
+export default {
+    name: "new",
+    data:function(){
+        return {
+            memoBody:'test'
+        }
+    },
+    methods:{
+        save:function(){
+            alert('保存されました');
+            this.$router.push("/");
+        }
+    }
+}
+</script>
 
 <style scoped>
 textarea {
