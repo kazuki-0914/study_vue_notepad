@@ -1,7 +1,7 @@
 <template>
   <div class="editor">
     <h1>Edit memo</h1>
-    <textarea name="memo" v-model="memo.body"></textarea>
+    <textarea name="memo" v-model="memoBody"></textarea>
     <button v-on:click="update">保存</button>
   </div>
 </template>
@@ -9,21 +9,37 @@
 <script>
 export default {
   name: "edit",
-  computed: {
-    memo: function() {
-      let id = this.$route.params["id"];
-      //stream?関数処理
-      return this.$store.state.memos.find((memo) => memo.id == id);
-    },
+  data: function() {
+    return {
+      memoBody: "",
+    };
   },
+  mounted: function() {
+    let id = this.$route.params["id"];
+    let memo = this.$store.state.memos.find((memo) => memo.id == id);
+    this.memoBody = memo.body;
+  },
+  // computed: {
+  //   memo: function() {
+  //     let id = this.$route.params["id"];
+  //     //stream?関数処理
+  //     return this.$store.state.memos.find((memo) => memo.id == id);
+  //   },
+  // },
   methods: {
+    // update: function() {
+    //   // alert('保存されました');
+    //   this.$store.commit("update", {
+    //     id: this.memo.id,
+    //     body: this.memo.body,
+    //   });
+    //   this.$router.push("/list");
+    // },
     update: function() {
-      // alert('保存されました');
       this.$store.commit("update", {
-        id:this.memo.id,
-        body: this.memo.body,
+        id: this.$route.params["id"],
+        body: this.memoBody,
       });
-
       this.$router.push("/list");
     },
   },
