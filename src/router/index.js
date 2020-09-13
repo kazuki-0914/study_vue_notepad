@@ -22,6 +22,11 @@ const routes = [
     path:'/new',
     name:'New',
     component:() =>import('../views/New.vue')
+  },
+  {
+    path:'/list',
+    name:'MemoList',
+    component:() =>import('../views/MemoList.vue')
   }
 ]
 
