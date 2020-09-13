@@ -16,7 +16,12 @@ export default {
     },
     methods:{
         save:function(){
-            alert('保存されました');
+            // alert('保存されました');
+            this.$store.commit("save",{
+                // id:3,
+                body:this.memoBody
+            })
+
             this.$router.push("/");
         }
     }
