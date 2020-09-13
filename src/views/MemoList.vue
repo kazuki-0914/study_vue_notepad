@@ -1,7 +1,11 @@
 <template>
   <div class="list">
     <ul v-for="memo in newest" v-bind:key="memo.id">
-      <li>{{ memo.body }}</li>
+      <li>
+        <router-link :to="{ name: 'Editor', params: { id: memo.id } }">
+          {{ memo.body }}
+        </router-link>
+      </li>
     </ul>
   </div>
 </template>

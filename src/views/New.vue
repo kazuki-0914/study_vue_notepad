@@ -22,7 +22,7 @@ export default {
                 body:this.memoBody
             })
 
-            this.$router.push("/");
+            this.$router.push("/list");
         }
     }
 }

@@ -16,6 +16,13 @@ export default new Vuex.Store({
           var max = state.memos[state.memos.length-1].id;
           memo.id = max +1;
           state.memos.push(memo);
-      }
+      },
+      update(state,data){
+        //idカウントアップ
+        // var max = state.memos[state.memos.length-1].id;
+        // memo.id = max +1;
+        let x = state.memos.find(memo => memo.id == data.id);
+        x.body =data.body;
+    }
   }
 });

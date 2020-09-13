@@ -28,6 +28,12 @@ const routes = [
     name:'MemoList',
     component:() =>import('../views/MemoList.vue')
   }
+  ,
+  {
+    path:'/edit/:id',
+    name:'Editor',
+    component:() =>import('../views/Editor.vue')
+  }
 ]
 
 const router = new VueRouter({
